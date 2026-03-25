@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import authRoutes from './routes/authRoutes.js';
-import productRoutes from './routes/productRoutes.js';
-import orderRoutes from './routes/orderRoutes.js';
+import authRoutes from './routes/authroutes.js';
+import productRoutes from './routes/productroutes.js';
+import orderRoutes from './routes/orderroutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 // import paymentRoutes from './routes/paymentRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
