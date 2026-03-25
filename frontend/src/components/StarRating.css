@@ -1,0 +1,29 @@
+.star-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: rgba(255, 215, 0, 0.2);
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+  -webkit-text-stroke: 1px rgba(255, 215, 0, 0.5);
+  user-select: none;
+}
+
+.star.active {
+  color: #ffd700;
+  -webkit-text-stroke: 0px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.star:not(.readonly):hover {
+  transform: scale(1.25);
+  color: rgba(255, 215, 0, 0.7);
+  -webkit-text-stroke: 0px;
+}
+
+.star.readonly {
+  cursor: default;
+}

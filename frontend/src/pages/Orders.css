@@ -1,0 +1,126 @@
+.orders-page { max-width: 800px; margin: 2rem auto; padding: 0 2rem; position: relative; z-index: 1; }
+.orders-page h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; }
+
+.order-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.5rem;
+  margin-bottom: 1.2rem; animation: fadeUp 0.4s ease both;
+  transition: border-color 0.2s;
+}
+
+.order-card:hover { border-color: rgba(0,255,170,0.3); }
+
+.order-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 1rem;
+}
+
+.order-header span:first-child { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); }
+
+.status {
+  padding: 0.3rem 0.9rem; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 700; color: var(--bg);
+}
+
+.order-items { margin-bottom: 1rem; }
+.order-items p { font-size: 0.88rem; color: var(--text2); padding: 0.25rem 0; }
+
+.order-footer {
+  display: flex; justify-content: space-between;
+  padding-top: 1rem; border-top: 1px solid var(--border);
+  font-size: 0.85rem; color: var(--text2);
+}
+
+.order-footer span:last-child { color: var(--neon); font-weight: 700; }
+.empty-orders { text-align: center; padding: 5rem; color: var(--text2); }
+.empty-orders h2 { font-size: 1.5rem; }
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .orders-page {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .orders-page h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .order-card {
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .status {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .order-items p {
+    font-size: 0.8rem;
+  }
+
+  .order-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .empty-orders {
+    padding: 2rem;
+  }
+
+  .empty-orders h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-page {
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .orders-page h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .order-card {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .order-header span:first-child {
+    font-size: 0.9rem;
+  }
+
+  .status {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .order-items p {
+    font-size: 0.75rem;
+  }
+
+  .order-footer {
+    font-size: 0.75rem;
+  }
+
+  .empty-orders {
+    padding: 1rem;
+  }
+
+  .empty-orders h2 {
+    font-size: 1rem;
+  }
+}

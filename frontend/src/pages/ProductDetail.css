@@ -1,0 +1,267 @@
+.pd-page { max-width: 1100px; margin: 2rem auto; padding: 0 2rem; }
+
+.pd-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.pd-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.pd-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.pd-category {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0,255,170,0.15);
+  border: 1px solid rgba(0,255,170,0.3);
+  color: var(--neon);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.pd-info { animation: fadeUp 0.4s ease both; }
+
+.pd-info h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  color: var(--text2);
+  font-size: 0.9rem;
+}
+
+.pd-desc {
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.pd-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.pd-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--neon);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.pd-unit { font-size: 1rem; color: var(--text2); }
+
+.pd-stock { font-size: 0.9rem; margin-bottom: 1.5rem; font-weight: 600; }
+.pd-stock.in { color: var(--neon); }
+.pd-stock.out { color: var(--danger); }
+
+.pd-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--neon);
+  color: var(--bg);
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.pd-add-btn:hover {
+  box-shadow: var(--glow);
+  transform: translateY(-2px);
+}
+
+.pd-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  gap: 1rem;
+  color: var(--text2);
+}
+
+/* ===== Tablet Responsive (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .pd-page {
+    padding: 0 1.5rem;
+  }
+
+  .pd-layout {
+    gap: 2rem;
+  }
+
+  .pd-image img {
+    height: 350px;
+  }
+
+  .pd-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .pd-amount {
+    font-size: 1.8rem;
+  }
+
+  .pd-add-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ===== Mobile Responsive (768px and below) ===== */
+@media (max-width: 768px) {
+  .pd-page {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .pd-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pd-image img {
+    height: 300px;
+  }
+
+  .pd-category {
+    top: 12px;
+    left: 12px;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .pd-info h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .pd-rating {
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .pd-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .pd-amount {
+    font-size: 1.5rem;
+  }
+
+  .pd-unit {
+    font-size: 0.9rem;
+  }
+
+  .pd-stock {
+    font-size: 0.85rem;
+  }
+
+  .pd-add-btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+
+  .pd-loading {
+    min-height: 50vh;
+  }
+}
+
+/* ===== Small Mobile (480px and below) ===== */
+@media (max-width: 480px) {
+  .pd-page {
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .pd-layout {
+    gap: 1rem;
+  }
+
+  .pd-image img {
+    height: 250px;
+  }
+
+  .pd-category {
+    top: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .pd-info h1 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pd-rating {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .pd-desc {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .pd-price {
+    margin-bottom: 0.6rem;
+  }
+
+  .pd-amount {
+    font-size: 1.2rem;
+  }
+
+  .pd-unit {
+    font-size: 0.8rem;
+  }
+
+  .pd-stock {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .pd-add-btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .pd-loading {
+    min-height: 40vh;
+  }
+}

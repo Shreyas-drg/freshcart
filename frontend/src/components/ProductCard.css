@@ -1,0 +1,228 @@
+.pcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  animation: fadeUp 0.5s ease both;
+  position: relative;
+}
+
+.pcard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 170, 0.4);
+  box-shadow: var(--shadow), 0 0 30px rgba(0, 255, 170, 0.06);
+}
+
+.pcard-image {
+  position: relative;
+  overflow: hidden;
+  height: 160px;
+}
+
+.pcard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.pcard:hover .pcard-image img { transform: scale(1.06); }
+
+.pcard-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 255, 170, 0.15);
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  color: var(--neon);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.pcard-body { padding: 1rem; }
+
+.pcard-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.pcard-desc { font-size: 0.8rem; color: var(--text2); margin-bottom: 0.8rem; line-height: 1.4; }
+
+.pcard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.pcard-price { display: flex; align-items: baseline; gap: 0.2rem; }
+.price-amount { font-size: 1.2rem; font-weight: 700; color: var(--neon); font-family: 'Syne', sans-serif; }
+.price-unit { font-size: 0.8rem; color: var(--text2); }
+
+.add-btn {
+  background: var(--neon);
+  color: var(--bg);
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.add-btn:hover {
+  box-shadow: 0 0 16px rgba(0, 255, 170, 0.5);
+  transform: scale(1.05);
+}
+
+/* .pcard-stock { } */
+.in-stock { font-size: 0.75rem; color: var(--neon); }
+.out-stock { font-size: 0.75rem; color: var(--danger); }
+
+.pcard-wish {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(5,10,14,0.7);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s;
+}
+
+.pcard-wish:hover { border-color: var(--danger); }
+.pcard-wish.wishlisted { border-color: var(--danger); background: rgba(255,77,109,0.1); }
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 1024px) {
+  .pcard-image {
+    height: 140px;
+  }
+
+  .pcard-body {
+    padding: 0.8rem;
+  }
+
+  .pcard-body h3 {
+    font-size: 0.9rem;
+  }
+
+  .pcard-desc {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .price-amount {
+    font-size: 1.1rem;
+  }
+
+  .add-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pcard {
+    transform: none;
+  }
+
+  .pcard:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .pcard-image {
+    height: 130px;
+  }
+
+  .pcard-body {
+    padding: 0.7rem;
+  }
+
+  .pcard-body h3 {
+    font-size: 0.85rem;
+  }
+
+  .pcard-desc {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pcard-category {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .price-amount {
+    font-size: 1rem;
+  }
+
+  .add-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .pcard-wish {
+    padding: 0.15rem;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pcard-image {
+    height: 110px;
+  }
+
+  .pcard-body {
+    padding: 0.6rem;
+  }
+
+  .pcard-body h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .pcard-desc {
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .pcard-footer {
+    margin-bottom: 0.4rem;
+  }
+
+  .price-amount {
+    font-size: 0.9rem;
+  }
+
+  .price-unit {
+    font-size: 0.7rem;
+  }
+
+  .add-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .in-stock,
+  .out-stock {
+    font-size: 0.7rem;
+  }
+}
