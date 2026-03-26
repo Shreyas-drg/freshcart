@@ -196,6 +196,7 @@
     max-height: 70vh;
     overflow-y: auto;
     width: 100%;
+    z-index: 1201; /* raised only for mobile */
   }
 
   .search-item {
@@ -253,6 +254,7 @@
     overflow-y: auto;
     width: 100%;
     box-shadow: 0 -4px 16px rgba(0,0,0,0.3);
+    z-index: 1201; /* raised only for small mobile */
   }
 
   .search-dropdown-label {
