@@ -17,12 +17,13 @@ const ReviewSection = ({ productId }) => {
 
   const fetchReviews = async () => {
     try {
-      const { data } = await API.get(`/reviews/${productId}`);
+      const { data } = await API.get(`/api/reviews/${productId}`);
       setReviews(data.reviews);
       setAvgRating(data.avgRating);
       setTotal(data.total);
     } catch (err) {
       console.error(err);
+      setMsg('Unable to load reviews right now');
     }
   };
 
@@ -33,7 +34,7 @@ const ReviewSection = ({ productId }) => {
     e.preventDefault();
     if (!rating) return setMsg('Please select a rating');
     try {
-      await API.post(`/reviews/${productId}`, { rating, comment });
+      await API.post(`/api/reviews/${productId}`, { rating, comment });
       setMsg('Review submitted! ✅');
       setRating(0);
       setComment('');
@@ -46,7 +47,7 @@ const ReviewSection = ({ productId }) => {
 
   const handleDelete = async (reviewId) => {
     try {
-      await API.delete(`/reviews/${reviewId}`);
+      await API.delete(`/api/reviews/${reviewId}`);
       fetchReviews();
     } catch (err) {
       console.error(err);
