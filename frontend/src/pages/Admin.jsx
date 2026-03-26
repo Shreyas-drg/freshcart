@@ -30,7 +30,7 @@ const Admin = () => {
     const formData = new FormData();
     formData.append('image', imageFile);
     const { data } = await API.post('/api/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: { 'Content-Type': 'multipart/form-data' },
     });
     return data.url;
   };
@@ -48,7 +48,9 @@ const Admin = () => {
       setImagePreview('');
       fetchProducts();
     } catch (err) {
-      setMsg(err.response?.data?.message || 'Error adding product');
+      const apiMsg = err.response?.data?.message;
+      setMsg(apiMsg || 'Error adding product');
+      console.error('Add product failed', err.response || err);
     } finally {
       setUploading(false);
     }
