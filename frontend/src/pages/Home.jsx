@@ -30,7 +30,7 @@ const Home = () => {
         const params = {};
         if (category !== 'All') params.category = category;
         if (search) params.search = search;
-        const { data } = await API.get('/products', { params });
+        const { data } = await API.get('/api/products', { params });
         setProducts(data);
       } catch (err) {
         console.error(err);

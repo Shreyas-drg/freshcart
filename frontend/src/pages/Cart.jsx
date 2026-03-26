@@ -15,14 +15,14 @@ const Cart = () => {
     if (!address) return setMsg('Please enter a delivery address');
     setPlacing(true);
     try {
-      await API.post('/orders', {
+      await API.post('/api/orders', {
         items: cartItems.map((i) => ({ product: i._id, name: i.name, price: i.price, quantity: i.quantity })),
         totalPrice,
         deliveryAddress: address,
       });
       clearCart();
       setMsg('Order placed! 🎉');
-      setTimeout(() => navigate('/orders'), 2000);
+      setTimeout(() => navigate('/api/orders'), 2000);
     } catch {
       setMsg('Failed to place order');
     } finally {

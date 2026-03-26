@@ -14,8 +14,8 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    API.get(`/products/${id}`).then(({ data }) => setProduct(data));
-    API.get(`/reviews/${id}`).then(({ data }) => setAvgRating(data.avgRating));
+    API.get(`/api/products/${id}`).then(({ data }) => setProduct(data));
+    API.get(`/api/reviews/${id}`).then(({ data }) => setAvgRating(data.avgRating));
   }, [id]);
 
   if (!product) return (

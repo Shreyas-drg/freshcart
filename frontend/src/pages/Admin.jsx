@@ -15,7 +15,7 @@ const Admin = () => {
   const [uploading, setUploading] = useState(false);
   const [msg, setMsg] = useState('');
 
-  const fetchProducts = () => API.get('/products').then(({ data }) => setProducts(data));
+  const fetchProducts = () => API.get('/api/products').then(({ data }) => setProducts(data));
   useEffect(() => { fetchProducts(); }, []);
 
   const handleImageChange = (e) => {
@@ -29,7 +29,7 @@ const Admin = () => {
     if (!imageFile) return '';
     const formData = new FormData();
     formData.append('image', imageFile);
-    const { data } = await API.post('/upload', formData, {
+    const { data } = await API.post('/api/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     });
     return data.url;
@@ -41,7 +41,7 @@ const Admin = () => {
     setMsg('');
     try {
       const imageUrl = await uploadImage();
-      await API.post('/products', { ...form, image: imageUrl });
+      await API.post('/api/products', { ...form, image: imageUrl });
       setMsg('Product added! ✅');
       setForm({ name: '', description: '', price: '', category: 'Fruits', stock: '', unit: 'kg', image: '' });
       setImageFile(null);
@@ -56,7 +56,7 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     if (!confirm('Delete this product?')) return;
-    await API.delete(`/products/${id}`);
+    await API.delete(`/api/products/${id}`);
     fetchProducts();
   };
 
