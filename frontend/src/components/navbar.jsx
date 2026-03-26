@@ -7,7 +7,7 @@ import Icon3D from './Icon3D';
 import UserAvatar from './UserAvatar';
 import SearchAutocomplete from './SearchAutocomplete';
 import RainfrostLogo from './RainfrostLogo';
-import './Navbar.css';
+import './navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
