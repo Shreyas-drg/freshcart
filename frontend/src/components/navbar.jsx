@@ -123,6 +123,11 @@ const Navbar = () => {
         <div className="nav-right">
           {user ? (
             <>
+              {user.isAdmin && (
+                <Link to="/admin" className="nav-admin-btn" title="Admin Panel">
+                  <span>Admin</span>
+                </Link>
+              )}
               <Link to="/wishlist" className="nav-icon-btn cart-icon-wrap" title="Wishlist">
                 <div className="icon-label-wrapper">
                   <Icon3D type="heart" size={44} />

@@ -316,6 +316,23 @@
   transform: translateY(-1px);
 }
 
+.nav-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-admin-btn:hover { border-color: var(--neon); color: var(--neon); }
+
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
   .navbar-inner {
