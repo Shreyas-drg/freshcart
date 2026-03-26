@@ -7,6 +7,13 @@
   border-bottom: 1px solid transparent;
 }
 
+.navbar-blur {
+  background: rgba(5, 10, 14, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease, backdrop-filter 0.2s ease;
+}
+
 .navbar-inner {
   max-width: 1300px;
   margin: 0 auto;

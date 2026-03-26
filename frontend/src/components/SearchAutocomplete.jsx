@@ -36,11 +36,13 @@ const SearchAutocomplete = () => {
     debounceRef.current = setTimeout(async () => {
       setLoading(true);
       try {
-        const { data } = await API.get('/products', { params: { search: query } });
+        const { data } = await API.get('/api/products', { params: { search: query } });
         setResults(data.slice(0, 6)); // max 6 suggestions
         setShowDropdown(true);
       } catch (err) {
-        console.error(err);
+        console.error('Search failed', err);
+        setResults([]);
+        setShowDropdown(true);
       } finally {
         setLoading(false);
       }

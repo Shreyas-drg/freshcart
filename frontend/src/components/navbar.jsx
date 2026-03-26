@@ -15,6 +15,7 @@ const Navbar = () => {
   const { wishlist } = useWishlist();
   const navigate = useNavigate();
   const [megaOpen, setMegaOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const megaRef = useRef();
 
   const handleLogout = () => { logout(); navigate('/'); };
@@ -29,6 +30,13 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const categories = [
     { name: 'Fruits', emoji: '🍎', desc: 'Fresh seasonal fruits' },
     { name: 'Vegetables', emoji: '🥦', desc: 'Farm fresh veggies' },
@@ -39,7 +47,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled || megaOpen ? 'navbar-blur' : ''}`}>
       <div className="navbar-inner">
 
         <Link to="/" className="nav-logo-section">
