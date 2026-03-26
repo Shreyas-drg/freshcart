@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* Logo */
@@ -315,6 +316,11 @@
     gap: 0.8rem;
   }
 
+  .nav-logo-section {
+    flex-shrink: 0;
+    min-width: auto;
+  }
+
   .nav-brand-text {
     font-size: 1.1rem;
   }
@@ -322,6 +328,7 @@
   .mega-trigger {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
+    flex-shrink: 0;
   }
 
   .mega-menu {
@@ -356,12 +363,20 @@
     gap: 0.3rem;
   }
 
+  /* Hide search on tablet, show on its own row */
+  .search-wrap {
+    flex: 1;
+    min-width: 100%;
+    order: 5;
+  }
+
   .nav-search {
     display: none;
   }
 
   .nav-right {
     gap: 0.3rem;
+    flex-shrink: 0;
   }
 
   .icon-label {
@@ -386,10 +401,21 @@
   .navbar-inner {
     padding: 0.5rem 0.8rem;
     gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .nav-logo-section {
+    flex-shrink: 0;
+    order: 1;
   }
 
   .nav-brand-text {
     font-size: 0.95rem;
+  }
+
+  .mega-trigger-wrap {
+    order: 2;
+    flex-shrink: 0;
   }
 
   .mega-trigger {
@@ -412,6 +438,32 @@
   .mega-quick {
     font-size: 0.8rem;
     padding: 0.4rem 0.6rem;
+  }
+
+  /* Search takes full width on mobile */
+  .search-wrap {
+    flex: 1;
+    min-width: 100%;
+    order: 3;
+  }
+
+  .search-input-wrap {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+  }
+
+  /* Icons on right side */
+  .nav-right {
+    gap: 0.2rem;
+    order: 4;
+    flex-shrink: 0;
+  }
+
+  .nav-icon-btn {
+    padding: 0.4rem;
   }
 
   .nav-get-started {
