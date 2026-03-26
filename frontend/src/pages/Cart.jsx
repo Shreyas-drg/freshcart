@@ -8,11 +8,16 @@ const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, clearCart, totalPrice } = useCart();
   const [address, setAddress] = useState('');
   const [msg, setMsg] = useState('');
+  const [msgType, setMsgType] = useState('info');
   const [placing, setPlacing] = useState(false);
   const navigate = useNavigate();
 
   const placeOrder = async () => {
-    if (!address) return setMsg('Please enter a delivery address');
+    if (!address) {
+      setMsg('Please enter a delivery address');
+      setMsgType('error');
+      return;
+    }
     setPlacing(true);
     try {
       await API.post('/api/orders', {
@@ -22,9 +27,11 @@ const Cart = () => {
       });
       clearCart();
       setMsg('Order placed! 🎉');
-      setTimeout(() => navigate('/api/orders'), 2000);
+      setMsgType('success');
+      setTimeout(() => navigate('/orders'), 1800);
     } catch {
       setMsg('Failed to place order');
+      setMsgType('error');
     } finally {
       setPlacing(false);
     }
@@ -76,6 +83,12 @@ const Cart = () => {
           {msg && <p className="order-msg">{msg}</p>}
         </div>
       </div>
+
+      {msg && (
+        <div className={`order-toast ${msgType}`}>
+          <span>{msg}</span>
+        </div>
+      )}
     </div>
   );
 };

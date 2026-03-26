@@ -8,7 +8,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    API.get('/orders/my').then(({ data }) => setOrders(data));
+    API.get('/api/orders/my').then(({ data }) => setOrders(data));
   }, []);
 
   if (orders.length === 0)
