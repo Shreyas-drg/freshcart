@@ -16,6 +16,7 @@ function AppContent() {
   const location = useLocation();
   const hideNavbarPaths = ['/login', '/register'];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
+  console.log("test");
 
   return (
     <>
