@@ -156,7 +156,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await API.post('/auth/register', form);
+      const { data } = await API.post('/api/auth/register', form);
       login(data);
       navigate('/');
     } catch (err) {
