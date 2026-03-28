@@ -216,6 +216,22 @@
   flex-shrink: 0;
 }
 
+@media (max-width: 1024px) {
+  .navbar-inner {
+    justify-content: space-between;
+  }
+
+  .nav-logo-section {
+    order: 1;
+    flex: 1;
+  }
+
+  .mega-trigger-wrap {
+    order: 3;
+    margin-left: auto;
+  }
+}
+
 .mobile-actions {
   display: none;
   margin-left: auto;
@@ -441,11 +457,13 @@
   .navbar-inner {
     padding: 0.5rem 1rem;
     gap: 0.8rem;
+    justify-content: space-between;
   }
 
   .nav-logo-section {
     flex-shrink: 0;
     min-width: auto;
+    order: 1;
   }
 
   .nav-brand-text {
@@ -456,6 +474,11 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
     flex-shrink: 0;
+  }
+
+  .mega-trigger-wrap {
+    order: 3;
+    margin-left: auto;
   }
 
   .mega-menu {
@@ -546,8 +569,9 @@
   }
 
   .mega-trigger-wrap {
-    order: 2;
+    order: 3;
     flex-shrink: 0;
+    margin-left: auto;
   }
 
   .mega-trigger {
