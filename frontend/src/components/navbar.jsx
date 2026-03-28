@@ -16,14 +16,23 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [megaOpen, setMegaOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const megaRef = useRef();
+  const mobileMenuRef = useRef();
 
-  const handleLogout = () => { logout(); navigate('/'); };
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+    setMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handler = (e) => {
       if (megaRef.current && !megaRef.current.contains(e.target)) {
         setMegaOpen(false);
+      }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+        setMobileMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -35,6 +44,16 @@ const Navbar = () => {
     onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   const categories = [
@@ -166,6 +185,83 @@ const Navbar = () => {
               <Link to="/login" className="nav-link-plain">Login</Link>
               <Link to="/register" className="nav-get-started">Get Started</Link>
             </>
+          )}
+        </div>
+
+        <div className="mobile-actions" ref={mobileMenuRef}>
+          <button
+            className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-expanded={mobileMenuOpen}
+            aria-label="Open quick links"
+          >
+            <span className="mobile-menu-label">Menu</span>
+            <span className="mobile-burger">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+
+          {mobileMenuOpen && (
+            <div className="mobile-menu-panel">
+              {user ? (
+                <>
+                  {user.isAdmin && (
+                    <Link
+                      to="/admin"
+                      className="mobile-menu-link"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Admin Panel
+                    </Link>
+                  )}
+                  <Link
+                    to="/wishlist"
+                    className="mobile-menu-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Wishlist
+                    {wishlist.length > 0 && <span className="mobile-pill">{wishlist.length}</span>}
+                  </Link>
+                  <Link
+                    to="/cart"
+                    className="mobile-menu-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Cart
+                    {cartItems.length > 0 && <span className="mobile-pill">{cartItems.length}</span>}
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className="mobile-menu-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                  <button type="button" className="mobile-menu-link danger" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="mobile-menu-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="mobile-menu-link emphasis"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get Started
+                  </Link>
+                </>
+              )}
+            </div>
           )}
         </div>
       </div>
