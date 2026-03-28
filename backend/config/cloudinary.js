@@ -5,6 +5,13 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// Log missing envs to help diagnose 500s during upload (does not print secrets)
+const missing = ['CLOUDINARY_CLOUD_NAME', 'CLOUDINARY_API_KEY', 'CLOUDINARY_API_SECRET']
+  .filter((key) => !process.env[key]);
+if (missing.length) {
+  console.error('Cloudinary env missing:', missing.join(', '));
+}
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,

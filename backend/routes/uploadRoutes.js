@@ -12,7 +12,10 @@ router.post('/', protect, adminOnly, upload.single('image'), (req, res) => {
     res.json({ url: req.file.path });
   } catch (err) {
     console.error('Upload error:', err);
-    res.status(500).json({ message: err.message || 'Image upload failed' });
+    res.status(500).json({
+      message: err.message || 'Image upload failed',
+      code: err.code || undefined,
+    });
   }
 });
 
