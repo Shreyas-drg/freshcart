@@ -136,58 +136,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Search Autocomplete */}
-        <SearchAutocomplete />
-
-        <div className="nav-right">
-          {user ? (
-            <>
-              {user.isAdmin && (
-                <Link to="/admin" className="nav-admin-btn" title="Admin Panel">
-                  <span>Admin</span>
-                </Link>
-              )}
-              <Link to="/wishlist" className="nav-icon-btn cart-icon-wrap" title="Wishlist">
-                <div className="icon-label-wrapper">
-                  <Icon3D type="heart" size={44} />
-                  <span className="icon-label">Wishlist</span>
-                </div>
-                {wishlist.length > 0 && (
-                  <span className="cart-badge" style={{ background: '#ff4d6d' }}>
-                    {wishlist.length}
-                  </span>
-                )}
-              </Link>
-              <Link to="/cart" className="nav-icon-btn cart-icon-wrap" title="Cart">
-                <div className="icon-label-wrapper">
-                  <Icon3D type="cart" size={44} />
-                  <span className="icon-label">Cart</span>
-                </div>
-                {cartItems.length > 0 && (
-                  <span className="cart-badge">{cartItems.length}</span>
-                )}
-              </Link>
-              <Link to="/profile" className="nav-icon-btn profile-icon-btn" title="Profile">
-                <div className="icon-label-wrapper">
-                  <UserAvatar name={user?.name} size={44} />
-                  <span className="icon-label">Profile</span>
-                </div>
-              </Link>
-              <button className="nav-logout" onClick={handleLogout} title="Logout">
-                <div className="icon-label-wrapper">
-                  <Icon3D type="logout" size={44} />
-                  <span className="icon-label">Logout</span>
-                </div>
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className="nav-link-plain">Login</Link>
-              <Link to="/register" className="nav-get-started">Get Started</Link>
-            </>
-          )}
-        </div>
-
         <div className="mobile-actions" ref={mobileMenuRef}>
           <button
             className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`}
@@ -262,6 +210,58 @@ const Navbar = () => {
                 </>
               )}
             </div>
+          )}
+        </div>
+
+        {/* Search Autocomplete */}
+        <SearchAutocomplete />
+
+        <div className="nav-right">
+          {user ? (
+            <>
+              {user.isAdmin && (
+                <Link to="/admin" className="nav-admin-btn" title="Admin Panel">
+                  <span>Admin</span>
+                </Link>
+              )}
+              <Link to="/wishlist" className="nav-icon-btn cart-icon-wrap" title="Wishlist">
+                <div className="icon-label-wrapper">
+                  <Icon3D type="heart" size={44} />
+                  <span className="icon-label">Wishlist</span>
+                </div>
+                {wishlist.length > 0 && (
+                  <span className="cart-badge" style={{ background: '#ff4d6d' }}>
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+              <Link to="/cart" className="nav-icon-btn cart-icon-wrap" title="Cart">
+                <div className="icon-label-wrapper">
+                  <Icon3D type="cart" size={44} />
+                  <span className="icon-label">Cart</span>
+                </div>
+                {cartItems.length > 0 && (
+                  <span className="cart-badge">{cartItems.length}</span>
+                )}
+              </Link>
+              <Link to="/profile" className="nav-icon-btn profile-icon-btn" title="Profile">
+                <div className="icon-label-wrapper">
+                  <UserAvatar name={user?.name} size={44} />
+                  <span className="icon-label">Profile</span>
+                </div>
+              </Link>
+              <button className="nav-logout" onClick={handleLogout} title="Logout">
+                <div className="icon-label-wrapper">
+                  <Icon3D type="logout" size={44} />
+                  <span className="icon-label">Logout</span>
+                </div>
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="nav-link-plain">Login</Link>
+              <Link to="/register" className="nav-get-started">Get Started</Link>
+            </>
           )}
         </div>
       </div>

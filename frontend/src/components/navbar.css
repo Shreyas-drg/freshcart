@@ -218,17 +218,28 @@
 
 @media (max-width: 1024px) {
   .navbar-inner {
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 0.8rem;
   }
 
   .nav-logo-section {
     order: 1;
-    flex: 1;
+    flex: 0 0 auto;
   }
 
   .mega-trigger-wrap {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .mobile-actions {
+    display: flex;
+    align-items: center;
     order: 3;
-    margin-left: auto;
+  }
+
+  .nav-right {
+    display: none;
   }
 }
 
@@ -457,7 +468,7 @@
   .navbar-inner {
     padding: 0.5rem 1rem;
     gap: 0.8rem;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .nav-logo-section {
@@ -477,8 +488,13 @@
   }
 
   .mega-trigger-wrap {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .mobile-actions {
     order: 3;
-    margin-left: auto;
+    margin-left: 0;
   }
 
   .mega-menu {
@@ -556,7 +572,7 @@
   .navbar-inner {
     padding: 0.5rem 0.8rem;
     gap: 0.5rem;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .nav-logo-section {
@@ -569,9 +585,13 @@
   }
 
   .mega-trigger-wrap {
-    order: 3;
+    order: 2;
     flex-shrink: 0;
-    margin-left: auto;
+    margin-left: 0;
+  }
+
+  .mobile-actions {
+    order: 3;
   }
 
   .mega-trigger {
