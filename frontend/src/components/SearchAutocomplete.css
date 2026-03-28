@@ -188,15 +188,15 @@
 
   .search-dropdown {
     position: fixed;
-    top: auto;
+    top: 76px; /* sit just below the sticky navbar/search bar */
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px 12px 0 0;
-    max-height: 70vh;
+    border-radius: 0;
+    max-height: calc(100vh - 76px);
     overflow-y: auto;
     width: 100%;
-    z-index: 1201; /* raised only for mobile */
+    z-index: 1500; /* ensure it overlays page content */
   }
 
   .search-item {
@@ -245,16 +245,16 @@
 
   .search-dropdown {
     position: fixed;
-    top: auto;
+    top: 76px; /* sit just below the sticky navbar/search bar */
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 16px 16px 0 0;
-    max-height: 60vh;
+    border-radius: 0;
+    max-height: calc(100vh - 76px);
     overflow-y: auto;
     width: 100%;
     box-shadow: 0 -4px 16px rgba(0,0,0,0.3);
-    z-index: 1201; /* raised only for small mobile */
+    z-index: 1500; /* ensure it overlays page content */
   }
 
   .search-dropdown-label {
