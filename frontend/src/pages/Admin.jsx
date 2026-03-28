@@ -40,7 +40,14 @@ const Admin = () => {
     setUploading(true);
     setMsg('');
     try {
-      const imageUrl = await uploadImage();
+      let imageUrl = '';
+      try {
+        imageUrl = await uploadImage();
+      } catch (uploadErr) {
+        const uploadMsg = uploadErr.response?.data?.message || uploadErr.message || 'Image upload failed';
+        setMsg(`${uploadMsg}. Adding product without image.`);
+      }
+
       await API.post('/api/products', { ...form, image: imageUrl });
       setMsg('Product added! ✅');
       setForm({ name: '', description: '', price: '', category: 'Fruits', stock: '', unit: 'kg', image: '' });
