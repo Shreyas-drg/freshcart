@@ -191,12 +191,13 @@
     top: 76px; /* sit just below the sticky navbar/search bar */
     left: 0;
     right: 0;
-    bottom: 0;
-    border-radius: 0;
-    max-height: calc(100vh - 76px);
+    bottom: auto;
+    border-radius: 14px 14px 0 0;
+    max-height: 70vh;
     overflow-y: auto;
     width: 100%;
     z-index: 1500; /* ensure it overlays page content */
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
   }
 
   .search-item {
@@ -248,9 +249,9 @@
     top: 76px; /* sit just below the sticky navbar/search bar */
     left: 0;
     right: 0;
-    bottom: 0;
-    border-radius: 0;
-    max-height: calc(100vh - 76px);
+    bottom: auto;
+    border-radius: 14px 14px 0 0;
+    max-height: 65vh;
     overflow-y: auto;
     width: 100%;
     box-shadow: 0 -4px 16px rgba(0,0,0,0.3);
